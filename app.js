@@ -1103,7 +1103,8 @@ function setTheme(theme) {
   button.textContent = dark ? "☀" : "☾";
   button.setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} mode`);
   button.title = `Switch to ${dark ? "light" : "dark"} mode`;
-  document.querySelector('meta[name="theme-color"]').content = dark ? "#202821" : "#f6f5f0";
+  document.querySelector('meta[name="theme-color"]').content =
+    getComputedStyle(document.documentElement).getPropertyValue("--paper").trim();
 }
 const savedTheme = localStorage.getItem("deenverse-theme");
 
