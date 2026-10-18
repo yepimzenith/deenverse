@@ -371,12 +371,32 @@ async function loadSurahs() {
       name: chapter.name_arabic,
       numberOfAyahs: chapter.verses_count
     }));
+    populateMomentSurahs();
     renderSurahs(surahs);
     updateResumeCard();
   } catch {
     list.innerHTML = '<div class="empty-state">The Quran library could not load. Please check your internet connection and try again.</div>';
   }
 }
+
+function populateMomentSurahs() {
+  const select = document.getElementById("moment-surah-select");
+  const options = surahs.map((surah) => {
+    const option = document.createElement("option");
+    option.value = String(surah.number);
+    option.textContent = `${surah.number}. ${surah.englishName} · ${surah.englishNameTranslation}`;
+    return option;
+  });
+  select.replaceChildren(...options);
+  select.value = "55";
+  select.disabled = false;
+  document.getElementById("moment-play").disabled = false;
+}
+
+document.getElementById("moment-play").addEventListener("click", () => {
+  const surahNumber = Number(document.getElementById("moment-surah-select").value);
+  if (surahs.some((surah) => surah.number === surahNumber)) playSurah(surahNumber);
+});
 
 function renderSurahs(items) {
   const list = document.getElementById("surah-list");
@@ -415,7 +435,17 @@ async function readSurah(surah) {
   const reader = document.getElementById("quran-reader");
   const ayahList = document.getElementById("ayah-list");
   const title = document.getElementById("reader-title");
+  const startAyahInput = document.getElementById("reader-start-ayah");
+  const listenButton = document.getElementById("reader-listen");
   readingSurah = surah;
+  startAyahInput.max = String(surah.numberOfAyahs);
+  startAyahInput.value = String(
+    resumePosition?.mode === "listen" && resumePosition.surahNumber === surah.number
+      ? Math.min(resumePosition.ayahNumber || 1, surah.numberOfAyahs)
+      : 1
+  );
+  startAyahInput.disabled = false;
+  listenButton.disabled = false;
   reader.hidden = false;
   title.textContent = `${surah.englishName} · ${surah.englishNameTranslation}`;
   ayahList.replaceChildren();
@@ -503,7 +533,13 @@ document.getElementById("reader-close").addEventListener("click", () => {
   document.getElementById("quran-reader").hidden = true;
 });
 document.getElementById("reader-listen").addEventListener("click", () => {
-  if (readingSurah) playSurah(readingSurah.number);
+  if (!readingSurah) return;
+  const startAyah = Number(document.getElementById("reader-start-ayah").value);
+  if (!Number.isInteger(startAyah) || startAyah < 1 || startAyah > readingSurah.numberOfAyahs) {
+    showToast(`Choose an ayah from 1 to ${readingSurah.numberOfAyahs}.`);
+    return;
+  }
+  playSurah(readingSurah.number, 0, startAyah);
 });
 
 function resumeLastPosition() {

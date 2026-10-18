@@ -14,10 +14,10 @@ Open `http://localhost:8765`.
 
 ## Features and sources
 
-- Read all 114 surahs in Uthmani Arabic with the M.A.S. Abdel Haleem English translation from Quran Foundation; browse and search surahs, then play the selected recitation.
+- Read all 114 surahs in Uthmani Arabic with the M.A.S. Abdel Haleem English translation from Quran Foundation; browse and search surahs, then play the selected recitation. The home-page Quran moment lets you choose any surah.
 - Resume Quran reading at the last ayah on this browser, or resume the last recitation near its saved playback position.
 - Request device location on demand to display local prayer times; the coordinates are sent to AlAdhan for calculation and are not stored by DeenVerse.
-- Stream verse-by-verse Quran recitations from Mishary Rashid Alafasy, Abdul Rahman Al-Sudais, or Maher Al-Muaiqly through AlQuran Cloud. The reader displays Bismillah separately before each surah except Al-Fatiha, where it remains part of the first ayah, and At-Tawbah, which does not begin with Bismillah. Reading text and audio require an internet connection.
+- Stream verse-by-verse Quran recitations from Mishary Rashid Alafasy, Abdul Rahman Al-Sudais, or Maher Al-Muaiqly through AlQuran Cloud. In the reader, choose any starting ayah and listen with the selected reciter. The reader displays Bismillah separately before each surah except Al-Fatiha, where it remains part of the first ayah, and At-Tawbah, which does not begin with Bismillah. Reading text and audio require an internet connection.
 - Switch between light and dark mode; the preference is saved in this browser.
 - Save individual daily verses, hadiths, and the currently playing Quran ayah. Saved entries keep their own content and source even after the daily quote changes.
 - Read rotating Quran verses and sourced hadith excerpts on the home page. The selection changes every six hours, and “Another verse” / “Another hadith” let you browse more immediately. Browse 18 featured narrations with Arabic text or excerpts, independently worded summaries, and direct source citations.

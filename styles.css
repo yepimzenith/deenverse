@@ -119,7 +119,10 @@ h1, h2, h3, p { margin-top: 0; }
 .listening-body .eyebrow { font-size: 7px; }
 .listening-body h3 { margin: 9px 0 6px; font-family: var(--serif); font-size: 17px; font-weight: 500; }
 .listening-body p { margin-bottom: 11px; color: #7c7e74; font-size: 9px; line-height: 1.6; }
-.play-feature { display: flex; align-items: center; gap: 7px; margin-top: auto; border: 0; border-radius: 5px; background: var(--green); color: white; padding: 8px 10px; font-size: 9px; }
+.moment-surah-label { display: grid; width: 100%; gap: 5px; color: var(--muted); font-size: 7px; font-weight: 700; letter-spacing: .8px; }
+.moment-surah-label select { width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: 5px; background: var(--card); padding: 7px; color: var(--ink); font: 9px var(--sans); }
+.play-feature { display: flex; align-items: center; gap: 7px; margin-top: 9px; border: 0; border-radius: 5px; background: var(--green); color: white; padding: 8px 10px; font-size: 9px; }
+.play-feature:disabled, .reader-listen:disabled { cursor: wait; opacity: .6; }
 .play-feature > span:first-child { font-size: 9px; }
 .play-time { margin-left: 5px; color: #d9e0d5; font-size: 8px; }
 .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 27px; }
@@ -328,6 +331,9 @@ input[type="range"] { height: 3px; accent-color: var(--green); cursor: pointer; 
   .reader-heading h2 { margin: 6px 0 0; font-family: var(--serif); font-size: 22px; font-weight: 500; }
   .reader-close { width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--paper); color: var(--muted); font-size: 20px; }
   .reader-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; border-block: 1px solid var(--line); padding: 10px 0; color: var(--muted); font-size: 9px; }
+  .reader-play-controls { display: flex; align-items: end; gap: 8px; }
+  .reader-start-label { display: grid; gap: 4px; color: var(--muted); font-size: 7px; font-weight: 700; letter-spacing: .6px; white-space: nowrap; }
+  .reader-start-label input { width: 74px; height: 32px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); padding: 5px 7px; color: var(--ink); font: 10px var(--sans); }
   .reader-listen { flex: 0 0 auto; border: 0; border-radius: 5px; background: var(--green); color: white; padding: 8px 10px; font-size: 9px; }
   .ayah-list { display: grid; gap: 8px; }
   .basmala-card { padding: 12px 10px 16px; text-align: center; }
@@ -478,6 +484,7 @@ input[type="range"] { height: 3px; accent-color: var(--green); cursor: pointer; 
     .creator-details { padding: 19px; }
     .creator-searches { grid-template-columns: 1fr; }
     .reader-toolbar { align-items: flex-start; flex-direction: column; }
+    .reader-play-controls { width: 100%; flex-wrap: wrap; }
     .hadith-source-banner { align-items: flex-start; flex-wrap: wrap; }
     .hadith-source-banner p { flex-basis: calc(100% - 52px); }
     .hadith-source-banner > a { margin-left: 51px; }

@@ -1,5 +1,5 @@
-const CACHE_NAME = "deenverse-shell-v13";
-const APP_SHELL = ["./", "./index.html", "./styles.css?v=20261018-saved-items-v5", "./app.js?v=20261018-saved-items-v5", "./manifest.webmanifest", "./icon.svg"];
+const CACHE_NAME = "deenverse-shell-v14";
+const APP_SHELL = ["./", "./index.html", "./styles.css?v=20261018-quran-start-v1", "./app.js?v=20261018-quran-start-v1", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));

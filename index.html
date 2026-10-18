@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261018-saved-items-v5">
+    <link rel="stylesheet" href="styles.css?v=20261018-quran-start-v1">
   </head>
   <body>
     <div class="app-shell">
@@ -96,7 +96,7 @@
 
             <article class="listening-card">
               <div class="listening-image" aria-hidden="true"><div class="image-sun"></div><div class="image-dome"></div><div class="image-dome small"></div><div class="image-minaret"></div><span class="image-stars">✦　·　✧</span></div>
-              <div class="listening-body"><span class="eyebrow">A MOMENT WITH THE QURAN</span><h3>Let the words settle.</h3><p>Take a breath. Listen to a beautiful recitation of Surah Ar-Rahman.</p><button class="play-feature" data-play-surah="55"><span>▷</span> Listen now <span class="play-time">10 min</span></button></div>
+              <div class="listening-body"><span class="eyebrow">A MOMENT WITH THE QURAN</span><h3>Let the words settle.</h3><p>Choose any surah to hear it with your selected reciter.</p><label class="moment-surah-label" for="moment-surah-select">SURAH<select id="moment-surah-select" aria-label="Choose a surah for your moment with the Quran" disabled><option value="55">Loading surahs…</option></select></label><button class="play-feature" id="moment-play" type="button" disabled><span>▷</span> Listen now</button></div>
             </article>
           </div>
 
@@ -126,7 +126,7 @@
           <div class="surah-list" id="surah-list"><div class="loading-state">Loading surahs…</div></div>
           <section class="quran-reader" id="quran-reader" hidden aria-labelledby="reader-title">
             <div class="reader-heading"><div><span class="eyebrow">READ & REFLECT</span><h2 id="reader-title">Choose a surah to read</h2></div><button class="reader-close" id="reader-close" type="button" aria-label="Close Quran reader">×</button></div>
-            <div class="reader-toolbar"><span>Uthmani Arabic · M.A.S. Abdel Haleem translation</span><button class="reader-listen" id="reader-listen" type="button">▷ Listen to surah</button></div>
+            <div class="reader-toolbar"><span>Uthmani Arabic · M.A.S. Abdel Haleem translation</span><div class="reader-play-controls"><label class="reader-start-label" for="reader-start-ayah">START AT AYAH<input id="reader-start-ayah" type="number" min="1" value="1" inputmode="numeric" aria-label="Ayah number to start listening from" disabled></label><button class="reader-listen" id="reader-listen" type="button" disabled>▷ Listen from ayah</button></div></div>
             <div class="ayah-list" id="ayah-list" aria-live="polite"><p class="loading-state">Choose a surah to load its verses.</p></div>
             <p class="reader-source">Quran text and translation provided via Quran Foundation. Translation is for study; consult qualified teachers for interpretation.</p>
           </section>
@@ -194,6 +194,6 @@
         <p class="prayer-source" id="prayer-source" hidden>Times from AlAdhan. Calculation methods can vary; check with your local mosque.</p>
       </div>
     </dialog>
-    <script src="app.js?v=20261018-saved-items-v5"></script>
+    <script src="app.js?v=20261018-quran-start-v1"></script>
   </body>
 </html>
