@@ -1,0 +1,17 @@
+{
+  "name": "Deenverse.com",
+  "short_name": "Deenverse.com",
+  "description": "A quiet space for Quran, reflection, and learning.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f5f0",
+  "theme_color": "#f6f5f0",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

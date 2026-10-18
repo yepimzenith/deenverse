@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5f0">
+    <meta name="application-name" content="Deenverse.com">
+    <meta name="description" content="Deenverse.com — a quiet space for Quran, hadith from Sunnah.com, reflection, and learning.">
+    <meta property="og:site_name" content="Deenverse.com">
+    <meta property="og:title" content="Deenverse.com">
+    <title>Deenverse.com</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20261018-saved-items-v5">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" data-page="home" aria-label="Deenverse.com home">
+          <span class="brand-mark" aria-hidden="true">د</span>
+          <span>Deenverse.com</span>
+        </a>
+
+        <div class="nav-label">YOUR SPACE</div>
+        <nav class="main-nav">
+          <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Home</button>
+          <button class="nav-item" data-page="quran"><span class="nav-icon">۞</span>The Quran</button>
+          <button class="nav-item" data-page="hadith"><span class="nav-icon">❞</span>Hadith</button>
+          <button class="nav-item" data-page="lectures"><span class="nav-icon">◖</span>Lectures</button>
+          <button class="nav-item" data-page="saved"><span class="nav-icon">♡</span>Saved</button>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-spark">✳</span>
+          <p class="note-title">A moment of stillness</p>
+          <p class="note-copy">“Surely in the remembrance of Allah do hearts find comfort.”</p>
+          <span class="note-source">QURAN 13:28</span>
+        </div>
+
+        <button class="profile-button" type="button" aria-label="Your profile">
+          <span class="avatar">A</span>
+          <span class="profile-copy"><strong>Assalamu alaikum</strong><small>Your personal space</small></span>
+          <span class="profile-more">···</span>
+        </button>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>YOUR SPACE</span><span class="crumb-slash">/</span><strong id="page-label">HOME</strong></div>
+          <div class="topbar-actions">
+            <button class="icon-button search-button" type="button" aria-label="Search" id="search-trigger">⌕</button>
+            <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">☾</button>
+          </div>
+        </header>
+
+        <section class="page active-page" id="page-home" aria-labelledby="welcome-title">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow"><span class="live-dot"></span> <span id="today-date">TODAY</span> <span class="eyebrow-divider">·</span> <span id="hijri-date">ISLAMIC DATE</span></div>
+              <h1 id="welcome-title">A little closer,<br><span>every day.</span></h1>
+              <p class="welcome-copy">A quiet space for your faith, your questions, and the moments in between.</p>
+            </div>
+            <div class="welcome-art" aria-hidden="true">
+              <div class="art-orbit"></div><div class="art-moon">☾</div><div class="art-star star-one">✦</div><div class="art-star star-two">✧</div>
+              <span class="art-caption">بِسْمِ اللَّهِ</span>
+            </div>
+          </div>
+
+          <div class="quick-grid">
+            <article class="quick-card quick-quran resume-card" id="reading-progress-card" role="button" tabindex="0" aria-label="Start reading Quran">
+              <span class="quick-icon">۞</span><span class="quick-label">PICK UP WHERE YOU LEFT OFF</span>
+              <strong id="resume-title">Start reading the Quran</strong><span class="quick-detail" id="resume-detail">Your reading progress will appear here.</span>
+              <span class="progress-track"><span id="resume-progress"></span></span><span class="quick-open" id="resume-action">→</span>
+            </article>
+            <button class="quick-card quick-prayer" id="prayer-card">
+              <span class="quick-icon">◷</span><span class="quick-label">A MOMENT TO PAUSE</span>
+              <strong>Make room for prayer</strong><span class="quick-detail">Your day, with a little more barakah.</span>
+              <span class="prayer-link">Explore prayer times <span>→</span></span>
+            </button>
+          </div>
+
+          <div class="section-heading">
+            <div><span class="eyebrow">A FEW GOOD PLACES TO BEGIN</span><h2>For your heart today</h2></div>
+            <button class="text-link" data-page="quran">Explore your library <span>→</span></button>
+          </div>
+
+          <div class="content-grid">
+            <article class="verse-card">
+              <div class="card-topline"><span class="pill"><span>✳</span> VERSE OF THE DAY</span><div class="quote-actions"><span class="quote-day" id="verse-day"></span><button class="save-button" data-save="verse" aria-label="Save verse of the day">♡</button></div></div>
+              <div class="arabic-verse" id="verse-arabic" lang="ar" dir="rtl"></div>
+              <blockquote id="verse-meaning"></blockquote>
+              <div class="verse-footer"><a class="quote-source-link" id="verse-reference" href="https://quran.com/" target="_blank" rel="noopener noreferrer"></a><div class="quote-footer-actions"><button class="listen-inline" id="verse-listen" type="button">▷ <span>Listen</span></button><button class="quote-next" id="next-verse" type="button">Another verse ↻</button></div></div>
+            </article>
+
+            <article class="listening-card">
+              <div class="listening-image" aria-hidden="true"><div class="image-sun"></div><div class="image-dome"></div><div class="image-dome small"></div><div class="image-minaret"></div><span class="image-stars">✦　·　✧</span></div>
+              <div class="listening-body"><span class="eyebrow">A MOMENT WITH THE QURAN</span><h3>Let the words settle.</h3><p>Take a breath. Listen to a beautiful recitation of Surah Ar-Rahman.</p><button class="play-feature" data-play-surah="55"><span>▷</span> Listen now <span class="play-time">10 min</span></button></div>
+            </article>
+          </div>
+
+          <div class="bottom-row">
+            <div class="mini-section">
+              <div class="section-heading compact"><div><span class="eyebrow">HADITH OF THE DAY</span><h2>A reminder from the Sunnah</h2></div><button class="text-link" data-page="hadith">Explore <span>→</span></button></div>
+              <article class="hadith-quote" id="daily-hadith-card">
+                <span class="quote-mark" aria-hidden="true">❞</span>
+                <button class="save-button hadith-save-button" data-save="daily-hadith" aria-label="Save hadith of the day">♡</button>
+                <p class="daily-hadith-arabic" id="daily-hadith-arabic" lang="ar" dir="rtl"></p>
+                <span class="hadith-meaning-label">MEANING</span>
+                <p id="daily-hadith-meaning"></p>
+                <div class="hadith-quote-footer"><a class="hadith-source-link" id="daily-hadith-source" href="https://sunnah.com/" target="_blank" rel="noopener noreferrer"></a><button class="quote-next" id="next-hadith" type="button">Another hadith ↻</button></div>
+              </article>
+            </div>
+            <div class="mini-section lecture-section">
+              <div class="section-heading compact"><div><span class="eyebrow">LISTEN & LEARN</span><h2>In good company</h2></div><button class="text-link" data-page="lectures">Browse <span>→</span></button></div>
+              <a class="lecture-row" href="https://www.youtube.com/@OneIslamProductions/videos" target="_blank" rel="noopener noreferrer"><span class="lecture-play">▷</span><span class="lecture-info"><strong>Watch One Islam Productions</strong><small>Official channel <span>·</span> Open their videos</small></span><span class="lecture-arrow">↗</span></a>
+              <p class="demo-note">Original lectures open on the creators’ official YouTube channel.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="page-quran" aria-labelledby="quran-title">
+          <div class="page-intro"><span class="eyebrow">THE RECITATION</span><h1 id="quran-title">The Quran</h1><p>Find a surah, choose a reciter, and take your time.</p></div>
+          <div class="library-toolbar"><label class="select-label" for="reciter-select">RECITER<select id="reciter-select"><option value="ar.alafasy">Mishary Rashid Alafasy · مشاري بن راشد العفاسي</option><option value="ar.abdurrahmaansudais">Abdul Rahman Al-Sudais · عبد الرحمن بن عبد العزيز السديس</option><option value="ar.mahermuaiqly">Maher Al-Muaiqly · ماهر المعيقلي</option></select></label><label class="surah-search"><span>⌕</span><input id="surah-search" type="search" placeholder="Find a surah…" autocomplete="off"></label></div>
+          <div class="surah-list" id="surah-list"><div class="loading-state">Loading surahs…</div></div>
+          <section class="quran-reader" id="quran-reader" hidden aria-labelledby="reader-title">
+            <div class="reader-heading"><div><span class="eyebrow">READ & REFLECT</span><h2 id="reader-title">Choose a surah to read</h2></div><button class="reader-close" id="reader-close" type="button" aria-label="Close Quran reader">×</button></div>
+            <div class="reader-toolbar"><span>Uthmani Arabic · M.A.S. Abdel Haleem translation</span><button class="reader-listen" id="reader-listen" type="button">▷ Listen to surah</button></div>
+            <div class="ayah-list" id="ayah-list" aria-live="polite"><p class="loading-state">Choose a surah to load its verses.</p></div>
+            <p class="reader-source">Quran text and translation provided via Quran Foundation. Translation is for study; consult qualified teachers for interpretation.</p>
+          </section>
+          <p class="source-note">Surah information, Quran text, and translation are provided via Quran Foundation; recitations stream via AlQuran Cloud. An internet connection is required. Playback may continue while your screen is locked on supported devices; a powered-off device cannot play audio.</p>
+        </section>
+
+        <section class="page" id="page-hadith" aria-labelledby="hadith-title">
+          <div class="page-intro hadith-intro"><span class="eyebrow">THE PROPHET'S WORDS · ORIGINAL SOURCES</span><h1 id="hadith-title">Hadith</h1><p>Browse featured narrations with Arabic excerpts, concise summaries, and direct Sunnah.com references.</p></div>
+          <div class="hadith-source-banner"><span class="hadith-source-icon" aria-hidden="true">❞</span><p><strong>Source-first, always</strong><span>Featured narrations show Arabic text or excerpts and independently worded summaries. Open each Sunnah.com citation for the complete text, translation, and scholarly notes.</span></p><a href="https://sunnah.com/" target="_blank" rel="noopener noreferrer">Visit Sunnah.com <span>↗</span></a></div>
+          <form class="hadith-search" id="hadith-search-form">
+            <label for="hadith-search-input">SEARCH THE HADITH COLLECTIONS</label>
+            <div class="hadith-search-row"><input id="hadith-search-input" type="search" placeholder="Search a topic, phrase, or reference…" autocomplete="off" maxlength="200"><button class="primary-button" type="submit">Search Sunnah.com <span>↗</span></button></div>
+          </form>
+          <div class="hadith-topics" aria-label="Popular hadith search topics">
+            <span>START WITH A TOPIC</span>
+            <a href="https://sunnah.com/search?q=prayer" target="_blank" rel="noopener noreferrer">Prayer</a>
+            <a href="https://sunnah.com/search?q=mercy" target="_blank" rel="noopener noreferrer">Mercy</a>
+            <a href="https://sunnah.com/search?q=character" target="_blank" rel="noopener noreferrer">Good character</a>
+            <a href="https://sunnah.com/search?q=knowledge" target="_blank" rel="noopener noreferrer">Knowledge</a>
+            <a href="https://sunnah.com/search?q=charity" target="_blank" rel="noopener noreferrer">Charity</a>
+          </div>
+          <div class="section-heading hadith-collection-heading featured-hadith-heading"><div><span class="eyebrow">18 SOURCED NARRATIONS</span><h2>Featured narrations</h2></div></div>
+          <div class="featured-hadith-links" id="featured-hadiths"></div>
+          <div class="section-heading hadith-collection-heading"><div><span class="eyebrow">BROWSE THE LIBRARY</span><h2>Collections on Sunnah.com</h2></div><span class="collection-count" id="collection-count">26 collections</span></div>
+          <div class="hadith-collections" id="hadith-collections" aria-live="polite"></div>
+          <p class="source-note hadith-source-note">Featured Arabic excerpts and summaries are provided for discovery; Sunnah.com maintains the complete narration text, translations, grading, and scholarly notes.</p>
+        </section>
+
+        <section class="page" id="page-lectures" aria-labelledby="lectures-title">
+          <div class="page-intro"><span class="eyebrow">LEARN AT YOUR OWN PACE</span><h1 id="lectures-title">Lectures</h1><p>Explore original reminders, talks, and Islamic videos from One Islam Productions.</p></div>
+          <article class="creator-card">
+            <div class="creator-art" aria-hidden="true"><span>﷽</span><i>✦</i><b>◖</b></div>
+            <div class="creator-details"><span class="eyebrow">FEATURED CREATOR</span><h2>One Islam Productions</h2><p>Watch the original videos and lectures on the creator’s official YouTube channel. DeenVerse links to their work rather than rehosting it.</p><div class="creator-links"><a class="primary-button" href="https://www.youtube.com/@OneIslamProductions/videos" target="_blank" rel="noopener noreferrer">Browse official videos <span>↗</span></a><a class="secondary-button" href="https://www.youtube.com/@OneIslamProductions" target="_blank" rel="noopener noreferrer">Visit channel <span>↗</span></a></div></div>
+          </article>
+          <div class="creator-video-heading"><span class="eyebrow">FROM THEIR OFFICIAL CHANNEL</span><h2>Watch One Islam Productions</h2><p>Browse and play videos from the channel’s uploads playlist without leaving DeenVerse.</p></div>
+          <div class="creator-video">
+            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUTX8ZbNDi_HBoyjTWRw9fAg" title="One Islam Productions official videos" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="creator-searches"><a href="https://www.youtube.com/@OneIslamProductions/search?query=Quran" target="_blank" rel="noopener noreferrer"><span>۞</span><span><strong>Quran reminders</strong><small>Search the official channel</small></span><b>↗</b></a><a href="https://www.youtube.com/@OneIslamProductions/search?query=Prophet" target="_blank" rel="noopener noreferrer"><span>❞</span><span><strong>Prophetic stories</strong><small>Search the official channel</small></span><b>↗</b></a><a href="https://www.youtube.com/@OneIslamProductions/search?query=faith" target="_blank" rel="noopener noreferrer"><span>✳</span><span><strong>Faith & reflection</strong><small>Search the official channel</small></span><b>↗</b></a></div>
+          <p class="source-note">Videos are streamed by YouTube and remain the property of their original creators. Availability, titles, and playback are controlled by the channel.</p>
+        </section>
+
+        <section class="page" id="page-saved" aria-labelledby="saved-title">
+          <div class="page-intro"><span class="eyebrow">KEEP WHAT RESONATES</span><h1 id="saved-title">Saved</h1><p>Your verses and reflections, all in one place.</p></div>
+          <div class="saved-list" id="saved-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="player" aria-label="Audio player">
+      <div class="player-track"><div class="player-cover">۞</div><div class="player-info"><strong id="track-title">Your listening space</strong><span id="track-subtitle">Choose a recitation to begin</span></div><button class="player-save save-button" data-save="now-playing" aria-label="Save current recitation">♡</button></div>
+      <div class="player-controls"><button class="control-button" id="previous-track" aria-label="Previous surah">↶</button><button class="player-main-button" id="play-toggle" aria-label="Play">▷</button><button class="control-button" id="next-track" aria-label="Next surah">↷</button><div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="100" value="0" aria-label="Seek"><span id="duration">0:00</span></div></div>
+      <div class="player-volume"><span>♫</span><input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume"><button class="queue-button" id="queue-button" aria-label="Open Quran library">☷</button></div>
+      <audio id="audio" preload="none"></audio>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <dialog class="prayer-dialog" id="prayer-dialog" aria-labelledby="prayer-dialog-title">
+      <div class="dialog-header"><div class="prayer-dialog-icon">◷</div><div><h2 id="prayer-dialog-title">Prayer times near you</h2><p>Today’s local prayer schedule</p></div><button class="dialog-close" id="close-prayer" aria-label="Close">×</button></div>
+      <div class="prayer-dialog-body">
+        <p class="location-explanation">Share your location to find today’s prayer times. Your browser will ask permission; AlAdhan receives your coordinates to calculate times, and DeenVerse doesn’t save them.</p>
+        <button class="primary-button location-button" id="location-button" type="button">Use my location <span>→</span></button>
+        <p class="location-status" id="location-status" role="status" aria-live="polite"></p>
+        <div class="prayer-times" id="prayer-times" hidden></div>
+        <p class="prayer-source" id="prayer-source" hidden>Times from AlAdhan. Calculation methods can vary; check with your local mosque.</p>
+      </div>
+    </dialog>
+    <script src="app.js?v=20261018-saved-items-v5"></script>
+  </body>
+</html>
