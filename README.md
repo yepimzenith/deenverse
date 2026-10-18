@@ -15,7 +15,7 @@ Open `http://localhost:8765`.
 ## Features and sources
 
 - Read all 114 surahs in Uthmani Arabic with the M.A.S. Abdel Haleem English translation from Quran Foundation; browse and search surahs, then play the selected recitation. The home-page Quran moment lets you choose any surah.
-- Resume Quran reading at the last ayah on this browser, or resume the last recitation near its saved playback position.
+- Save Quran reading and recitation progress as you go, including when the page is closed; on return, reopen the same surah and ayah, with audio restored paused at its saved position and reciter. Press play to continue, as browsers block automatic audio playback.
 - Request device location on demand to display local prayer times; the coordinates are sent to AlAdhan for calculation and are not stored by DeenVerse.
 - Stream verse-by-verse Quran recitations from Mishary Rashid Alafasy, Abdul Rahman Al-Sudais, or Maher Al-Muaiqly through AlQuran Cloud. In the reader, choose any starting ayah and listen with the selected reciter. The reader displays Bismillah separately before each surah except Al-Fatiha, where it remains part of the first ayah, and At-Tawbah, which does not begin with Bismillah. Reading text and audio require an internet connection.
 - Switch between light and dark mode; the preference is saved in this browser.
