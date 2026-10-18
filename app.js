@@ -4,6 +4,54 @@ const trackTitle = document.getElementById("track-title");
 const trackSubtitle = document.getElementById("track-subtitle");
 const reciterSelect = document.getElementById("reciter-select");
 const toast = document.getElementById("toast");
+const featuredLectures = [
+  { id: "UxErc6_HDJw", title: "Why Haram Will Never Fulfill Your Heart" },
+  { id: "USpegkfoCAw", title: "The Dark Side of Endless Scrolling" },
+  { id: "cu1tihE_v3c", title: "This One Deed Could Open Every Door of Jannah" },
+  { id: "zNJZw1XG38E", title: "How To Protect Yourself From Secret Sins" },
+  { id: "ulmGiCRo7Zg", title: "A Powerful Reminder for Those Who Overthink" },
+  { id: "wWpfq9LhY1A", title: "A Dua That Is Stronger Than All Medicine" },
+  { id: "C88PZEgc2uQ", title: "Allah Made This Man Blind For His Sin" },
+  { id: "b-jtgZZNjNU", title: "Do These 3 Things Before Death Comes" },
+  { id: "jB0z4Avseew", title: "A Powerful Story About Escaping Haram Love" },
+  { id: "4t7QGRwjunY", title: "How The Angel Of Death Will Take Shaytaans Soul" },
+  { id: "h2iSuAnMoJs", title: "What Prophet Muhammad (PBUH) Saw In His Journey To Heaven" },
+  { id: "4Tp8qqs1h_I", title: "Six Signs Allah Is Helping You" },
+  { id: "Hh7NAjhzBZc", title: "Falling Into Sin Again and Again?" },
+  { id: "_yGRAUmXYVc", title: "The Major Sin You Must Avoid During Wudu" },
+  { id: "axQOWhv6kJg", title: "What Will Happen When Al-Mahdi Appears?" }
+];
+
+function chooseFeaturedLecture(excludeId) {
+  const choices = featuredLectures.filter((lecture) => lecture.id !== excludeId);
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function setHomeFeaturedLecture(lecture) {
+  const link = document.getElementById("home-featured-lecture");
+  link.href = `https://www.youtube.com/watch?v=${lecture.id}`;
+  link.setAttribute("aria-label", `Watch ${lecture.title} on One Islam Productions`);
+  document.getElementById("home-lecture-thumbnail").src = `https://i.ytimg.com/vi/${lecture.id}/hqdefault.jpg`;
+  document.getElementById("home-lecture-title").textContent = lecture.title;
+  document.getElementById("home-lecture-source").textContent = "One Islam Productions · Watch video";
+}
+
+function setLecturesFeaturedVideo(lecture) {
+  const player = document.getElementById("featured-lecture-player");
+  player.src = `https://www.youtube-nocookie.com/embed/${lecture.id}?rel=0`;
+  player.title = `${lecture.title} — One Islam Productions`;
+  document.getElementById("featured-lecture-title").textContent = lecture.title;
+}
+
+const homeFeaturedLecture = chooseFeaturedLecture();
+let lecturesFeaturedVideo = chooseFeaturedLecture(homeFeaturedLecture.id);
+setHomeFeaturedLecture(homeFeaturedLecture);
+setLecturesFeaturedVideo(lecturesFeaturedVideo);
+document.getElementById("another-lecture").addEventListener("click", () => {
+  lecturesFeaturedVideo = chooseFeaturedLecture(lecturesFeaturedVideo.id);
+  setLecturesFeaturedVideo(lecturesFeaturedVideo);
+});
+
 function loadSavedKeys() {
   try {
     const stored = JSON.parse(localStorage.getItem("deenverse-saved") || "[]");

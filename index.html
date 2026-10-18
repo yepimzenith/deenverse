@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261018-quran-start-v1">
+    <link rel="stylesheet" href="styles.css?v=20261018-lectures-v1">
   </head>
   <body>
     <div class="app-shell">
@@ -115,8 +115,11 @@
             </div>
             <div class="mini-section lecture-section">
               <div class="section-heading compact"><div><span class="eyebrow">LISTEN & LEARN</span><h2>In good company</h2></div><button class="text-link" data-page="lectures">Browse <span>→</span></button></div>
-              <a class="lecture-row" href="https://www.youtube.com/@OneIslamProductions/videos" target="_blank" rel="noopener noreferrer"><span class="lecture-play">▷</span><span class="lecture-info"><strong>Watch One Islam Productions</strong><small>Official channel <span>·</span> Open their videos</small></span><span class="lecture-arrow">↗</span></a>
-              <p class="demo-note">Original lectures open on the creators’ official YouTube channel.</p>
+              <a class="lecture-row" id="home-featured-lecture" href="https://www.youtube.com/@OneIslamProductions/videos" target="_blank" rel="noopener noreferrer">
+                <span class="home-lecture-thumbnail"><img id="home-lecture-thumbnail" src="https://i.ytimg.com/vi/UxErc6_HDJw/hqdefault.jpg" alt="" loading="lazy"><span class="lecture-thumbnail-play" aria-hidden="true">▷</span></span>
+                <span class="lecture-info"><strong id="home-lecture-title">A reminder from One Islam Productions</strong><small id="home-lecture-source">Official One Islam Productions video</small></span><span class="lecture-arrow">↗</span>
+              </a>
+              <p class="demo-note">A featured reminder, selected for this visit.</p>
             </div>
           </div>
         </section>
@@ -162,9 +165,14 @@
             <div class="creator-art" aria-hidden="true"><span>﷽</span><i>✦</i><b>◖</b></div>
             <div class="creator-details"><span class="eyebrow">FEATURED CREATOR</span><h2>One Islam Productions</h2><p>Watch the original videos and lectures on the creator’s official YouTube channel. DeenVerse links to their work rather than rehosting it.</p><div class="creator-links"><a class="primary-button" href="https://www.youtube.com/@OneIslamProductions/videos" target="_blank" rel="noopener noreferrer">Browse official videos <span>↗</span></a><a class="secondary-button" href="https://www.youtube.com/@OneIslamProductions" target="_blank" rel="noopener noreferrer">Visit channel <span>↗</span></a></div></div>
           </article>
-          <div class="creator-video-heading"><span class="eyebrow">FROM THEIR OFFICIAL CHANNEL</span><h2>Watch One Islam Productions</h2><p>Browse and play videos from the channel’s uploads playlist without leaving DeenVerse.</p></div>
+          <div class="creator-video-heading"><span class="eyebrow">A RANDOM PICK FROM THEIR OFFICIAL UPLOADS</span><h2 id="featured-lecture-title">A reminder from One Islam Productions</h2><p>Play this featured reminder here, or choose another official upload.</p></div>
           <div class="creator-video">
-            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUTX8ZbNDi_HBoyjTWRw9fAg" title="One Islam Productions official videos" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="featured-lecture-player" src="https://www.youtube-nocookie.com/embed/UxErc6_HDJw?rel=0" title="One Islam Productions lecture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <button class="secondary-button random-lecture-button" id="another-lecture" type="button">Choose another lecture <span>↻</span></button>
+          <div class="creator-video-heading"><span class="eyebrow">MORE FROM THEIR OFFICIAL CHANNEL</span><h2>Browse all uploads</h2><p>Browse and play the complete official uploads playlist.</p></div>
+          <div class="creator-video">
+            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUTX8ZbNDi_HBoyjTWRw9fAg" title="One Islam Productions official videos playlist" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="creator-searches"><a href="https://www.youtube.com/@OneIslamProductions/search?query=Quran" target="_blank" rel="noopener noreferrer"><span>۞</span><span><strong>Quran reminders</strong><small>Search the official channel</small></span><b>↗</b></a><a href="https://www.youtube.com/@OneIslamProductions/search?query=Prophet" target="_blank" rel="noopener noreferrer"><span>❞</span><span><strong>Prophetic stories</strong><small>Search the official channel</small></span><b>↗</b></a><a href="https://www.youtube.com/@OneIslamProductions/search?query=faith" target="_blank" rel="noopener noreferrer"><span>✳</span><span><strong>Faith & reflection</strong><small>Search the official channel</small></span><b>↗</b></a></div>
           <p class="source-note">Videos are streamed by YouTube and remain the property of their original creators. Availability, titles, and playback are controlled by the channel.</p>
@@ -195,6 +203,6 @@
         <p class="prayer-source" id="prayer-source" hidden>Times from AlAdhan. Calculation methods can vary; check with your local mosque.</p>
       </div>
     </dialog>
-    <script src="app.js?v=20261018-quran-start-v1"></script>
+    <script src="app.js?v=20261018-lectures-v1"></script>
   </body>
 </html>

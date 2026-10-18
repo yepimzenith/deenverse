@@ -140,6 +140,9 @@ h1, h2, h3, p { margin-top: 0; }
 .hadith-source-link:hover { text-decoration: underline; }
 .lecture-row { display: flex; width: 100%; align-items: center; gap: 10px; border: 1px solid #e9e8e0; border-radius: 8px; background: var(--card); padding: 12px; text-align: left; }
 .lecture-play { display: grid; width: 30px; height: 30px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: #edf0e9; color: var(--green); font-size: 11px; }
+.home-lecture-thumbnail { position: relative; display: block; width: 68px; flex: 0 0 68px; overflow: hidden; aspect-ratio: 16 / 9; border-radius: 5px; background: #202820; }
+.home-lecture-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lecture-thumbnail-play { position: absolute; inset: 0; display: grid; place-items: center; background: #0005; color: white; font-size: 15px; }
 .lecture-info { display: grid; gap: 5px; }
 .lecture-info strong { font-family: var(--serif); font-size: 10px; font-weight: 600; }
 .lecture-info small { color: #898a80; font-size: 8px; }
@@ -362,6 +365,7 @@ input[type="range"] { height: 3px; accent-color: var(--green); cursor: pointer; 
   .creator-video-heading p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
   .creator-video { max-width: 850px; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; background: #111; }
   .creator-video iframe { display: block; width: 100%; height: 100%; border: 0; }
+  .random-lecture-button { margin-top: 10px; cursor: pointer; }
   .secondary-button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--green-dark); padding: 9px 12px; font-size: 10px; }
   .creator-searches { display: grid; max-width: 850px; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
   .creator-searches a { display: flex; min-width: 0; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); padding: 12px; color: var(--green); text-decoration: none; }
