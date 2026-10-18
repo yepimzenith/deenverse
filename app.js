@@ -450,7 +450,6 @@ async function loadSurahs() {
     populateMomentSurahs();
     renderSurahs(surahs);
     updateResumeCard();
-    await restorePositionOnOpen();
   } catch {
     list.innerHTML = '<div class="empty-state">The Quran library could not load. Please check your internet connection and try again.</div>';
   }
@@ -516,11 +515,11 @@ async function readSurah(surah) {
   const listenButton = document.getElementById("reader-listen");
   readingSurah = surah;
   startAyahInput.max = String(surah.numberOfAyahs);
-  startAyahInput.value = String(
-    resumePosition?.mode === "listen" && resumePosition.surahNumber === surah.number
-      ? Math.min(resumePosition.ayahNumber || 1, surah.numberOfAyahs)
-      : 1
-  );
+  const savedAyah = resumePosition?.surahNumber === surah.number
+    ? resumePosition.mode === "read" ? resumePosition.ayah : resumePosition.ayahNumber
+    : 1;
+  const startAyah = Math.min(savedAyah || 1, surah.numberOfAyahs);
+  startAyahInput.value = String(startAyah);
   startAyahInput.disabled = false;
   listenButton.disabled = false;
   reader.hidden = false;
@@ -530,7 +529,7 @@ async function readSurah(surah) {
   loading.className = "loading-state";
   loading.textContent = "Loading Arabic text and translation…";
   ayahList.append(loading);
-  reader.scrollIntoView({ behavior: "smooth", block: "start" });
+  reader.scrollIntoView({ behavior: "auto", block: "start" });
   try {
     const response = await fetch(`https://api.quran.com/api/v4/verses/by_chapter/${surah.number}?translations=85&fields=text_uthmani&per_page=300`);
     if (!response.ok) throw new Error("Could not load this surah.");
@@ -574,11 +573,8 @@ async function readSurah(surah) {
         saveResumePosition({ mode: "read", surahNumber: surah.number, ayah });
       });
     });
-    const savedAyah = resumePosition?.surahNumber === surah.number
-      ? resumePosition.mode === "read" ? resumePosition.ayah : resumePosition.ayahNumber
-      : 1;
     const startAyah = Math.min(savedAyah || 1, ayahs.length);
-    ayahList.children[startAyah - 1]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    ayahCards[startAyah - 1]?.scrollIntoView({ behavior: "auto", block: "center" });
     saveResumePosition({ mode: "read", surahNumber: surah.number, ayah: startAyah });
     readingObserver?.disconnect();
     readingObserver = new IntersectionObserver((entries) => {
@@ -621,10 +617,6 @@ document.getElementById("reader-listen").addEventListener("click", () => {
   }
   playSurah(readingSurah.number, 0, startAyah);
 });
-
-async function restorePositionOnOpen() {
-  return restoreSavedPosition(false);
-}
 
 async function restoreSavedPosition(autoplay) {
   if (!resumePosition) return;
