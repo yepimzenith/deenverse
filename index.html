@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261018-resume-v2">
+    <link rel="stylesheet" href="styles.css?v=20261018-colors-v1">
   </head>
   <body>
     <div class="app-shell">
@@ -52,6 +52,13 @@
           <div class="breadcrumb"><span>YOUR SPACE</span><span class="crumb-slash">/</span><strong id="page-label">HOME</strong></div>
           <div class="topbar-actions">
             <button class="icon-button search-button" type="button" aria-label="Search" id="search-trigger">⌕</button>
+            <div class="color-picker">
+              <button class="theme-toggle color-trigger" type="button" id="color-trigger" aria-label="Choose color theme" title="Choose color theme" aria-expanded="false" aria-controls="color-options">◉</button>
+              <div class="color-options" id="color-options" role="group" aria-label="Color themes" hidden>
+                <span class="color-options-title">CHOOSE YOUR COLORS</span>
+                <div class="color-swatches" id="color-swatches"></div>
+              </div>
+            </div>
             <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">☾</button>
           </div>
         </header>
@@ -203,6 +210,6 @@
         <p class="prayer-source" id="prayer-source" hidden>Times from AlAdhan. Calculation methods can vary; check with your local mosque.</p>
       </div>
     </dialog>
-    <script src="app.js?v=20261018-resume-v2"></script>
+    <script src="app.js?v=20261018-colors-v1"></script>
   </body>
 </html>

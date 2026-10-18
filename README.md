@@ -18,7 +18,7 @@ Open `http://localhost:8765`.
 - Save Quran reading and recitation progress as you go, including when the page is closed; on return, reopen the same surah and ayah, with audio restored paused at its saved position and reciter. Press play to continue, as browsers block automatic audio playback.
 - Request device location on demand to display local prayer times; the coordinates are sent to AlAdhan for calculation and are not stored by DeenVerse.
 - Stream verse-by-verse Quran recitations from Mishary Rashid Alafasy, Abdul Rahman Al-Sudais, or Maher Al-Muaiqly through AlQuran Cloud. In the reader, choose any starting ayah and listen with the selected reciter. The reader displays Bismillah separately before each surah except Al-Fatiha, where it remains part of the first ayah, and At-Tawbah, which does not begin with Bismillah. Reading text and audio require an internet connection.
-- Switch between light and dark mode; the preference is saved in this browser.
+- Switch between light and dark mode and choose from eight saved color themes: Sage, Ocean, Indigo, Plum, Rose, Amber, Teal, and Slate.
 - Save individual daily verses, hadiths, and the currently playing Quran ayah. Saved entries keep their own content and source even after the daily quote changes.
 - Read rotating Quran verses and sourced hadith excerpts on the home page. The selection changes every six hours, and “Another verse” / “Another hadith” let you browse more immediately. Browse 18 featured narrations with Arabic text or excerpts, independently worded summaries, and direct source citations.
 - Search Sunnah.com by topic or reference, jump directly to featured narrations, and browse 26 collection links. Open Sunnah.com for its full narration pages, translations, and grading.

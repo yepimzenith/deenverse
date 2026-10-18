@@ -47,6 +47,16 @@ button { cursor: pointer; }
 .crumb-slash { margin: 0 9px; color: #c2c2b8; }
 .topbar-actions { display: flex; align-items: center; gap: 11px; }
 .icon-button { border: 0; background: transparent; color: #74786e; font-size: 23px; }
+.color-picker { position: relative; }
+.color-options { position: absolute; top: calc(100% + 9px); right: 0; z-index: 8; width: 220px; border: 1px solid var(--line); border-radius: 9px; background: var(--card); box-shadow: 0 12px 32px #17201824; padding: 12px; }
+.color-options[hidden] { display: none; }
+.color-options-title { display: block; margin: 1px 2px 10px; color: var(--muted); font-size: 8px; font-weight: 700; letter-spacing: 1px; }
+.color-swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.color-swatch { display: grid; min-width: 0; justify-items: center; gap: 5px; border: 1px solid transparent; border-radius: 7px; background: transparent; padding: 6px 2px; color: var(--ink); }
+.color-swatch:hover, .color-swatch[aria-pressed="true"] { border-color: var(--line); background: var(--paper); }
+.color-swatch-dot { display: grid; width: 22px; height: 22px; place-items: center; border: 2px solid var(--card); border-radius: 50%; outline: 1px solid var(--swatch-color); background: var(--swatch-color); }
+.color-swatch[aria-pressed="true"] .color-swatch-dot::after { width: 5px; height: 9px; border-right: 2px solid white; border-bottom: 2px solid white; content: ""; transform: translateY(-1px) rotate(45deg); }
+.color-swatch-name { font-size: 8px; }
 .page { display: none; padding-top: 37px; animation: appear .24s ease-out; }
 .page.active-page { display: block; }
 @keyframes appear { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
@@ -387,6 +397,7 @@ input[type="range"] { height: 3px; accent-color: var(--green); cursor: pointer; 
     --sage: #344136;
     --gold: #d1ae79;
   }
+  :root[data-theme="dark"] .color-options { box-shadow: 0 12px 32px #0006; }
   :root[data-theme="dark"] body { background: var(--paper); color: var(--ink); }
   :root[data-theme="dark"] .sidebar,
   :root[data-theme="dark"] .sidebar-note,

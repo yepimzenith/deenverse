@@ -1097,6 +1097,7 @@ updateSaveButtons();
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem("deenverse-theme", theme);
+  applyColorPalette(localStorage.getItem("deenverse-color-theme") || "sage", theme);
   const button = document.getElementById("theme-toggle");
   const dark = theme === "dark";
   button.textContent = dark ? "☀" : "☾";
@@ -1105,9 +1106,76 @@ function setTheme(theme) {
   document.querySelector('meta[name="theme-color"]').content = dark ? "#202821" : "#f6f5f0";
 }
 const savedTheme = localStorage.getItem("deenverse-theme");
+
+const colorPalettes = [
+  { id: "sage", name: "Sage", light: ["#345943", "#274532", "#e7ede5"], dark: ["#8ba785", "#bbd0b6", "#344136"] },
+  { id: "ocean", name: "Ocean", light: ["#316979", "#244f5d", "#e5f0f2"], dark: ["#78bdc8", "#b8e0e5", "#34494d"] },
+  { id: "indigo", name: "Indigo", light: ["#5159a8", "#3b417e", "#e9eaf7"], dark: ["#aab0fa", "#d0d3ff", "#37384f"] },
+  { id: "plum", name: "Plum", light: ["#80517f", "#613d60", "#f1e9f1"], dark: ["#d0a1d0", "#edcbed", "#49364a"] },
+  { id: "rose", name: "Rose", light: ["#a75063", "#7e3949", "#f6e9ec"], dark: ["#ed9bad", "#ffd0d9", "#4b343b"] },
+  { id: "amber", name: "Amber", light: ["#95651f", "#6f4b18", "#f4eee1"], dark: ["#e2b764", "#f1d49a", "#493f2c"] },
+  { id: "teal", name: "Teal", light: ["#287568", "#1f574e", "#e5f1ed"], dark: ["#68c5ae", "#b0e5d5", "#334942"] },
+  { id: "slate", name: "Slate", light: ["#52647f", "#394761", "#e8edf4"], dark: ["#adbfdd", "#d4dff0", "#394354"] }
+];
+
+function applyColorPalette(paletteId, theme = document.documentElement.dataset.theme) {
+  const palette = colorPalettes.find((item) => item.id === paletteId) || colorPalettes[0];
+  const colors = theme === "dark" ? palette.dark : palette.light;
+  const root = document.documentElement;
+  root.dataset.palette = palette.id;
+  root.style.setProperty("--green", colors[0]);
+  root.style.setProperty("--green-dark", colors[1]);
+  root.style.setProperty("--sage", colors[2]);
+  localStorage.setItem("deenverse-color-theme", palette.id);
+  document.querySelectorAll("[data-color-theme]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.colorTheme === palette.id));
+  });
+}
+
+function renderColorPalettes() {
+  const swatches = document.getElementById("color-swatches");
+  const savedPalette = localStorage.getItem("deenverse-color-theme") || "sage";
+  for (const palette of colorPalettes) {
+    const button = document.createElement("button");
+    button.className = "color-swatch";
+    button.type = "button";
+    button.dataset.colorTheme = palette.id;
+    button.setAttribute("aria-label", `${palette.name} color theme`);
+    button.setAttribute("aria-pressed", String(palette.id === savedPalette));
+    button.title = palette.name;
+    button.style.setProperty("--swatch-color", palette.light[0]);
+    button.innerHTML = `<span class="color-swatch-dot" aria-hidden="true"></span><span class="color-swatch-name">${palette.name}</span>`;
+    button.addEventListener("click", () => {
+      applyColorPalette(palette.id);
+      colorOptions.hidden = true;
+      colorTrigger.setAttribute("aria-expanded", "false");
+      colorTrigger.focus();
+    });
+    swatches.append(button);
+  }
+}
+
+const colorTrigger = document.getElementById("color-trigger");
+const colorOptions = document.getElementById("color-options");
+renderColorPalettes();
 setTheme(savedTheme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 document.getElementById("theme-toggle").addEventListener("click", () => {
   setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+});
+colorTrigger.addEventListener("click", () => {
+  colorOptions.hidden = !colorOptions.hidden;
+  colorTrigger.setAttribute("aria-expanded", String(!colorOptions.hidden));
+});
+document.addEventListener("click", (event) => {
+  if (colorOptions.hidden || event.target.closest(".color-picker")) return;
+  colorOptions.hidden = true;
+  colorTrigger.setAttribute("aria-expanded", "false");
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || colorOptions.hidden) return;
+  colorOptions.hidden = true;
+  colorTrigger.setAttribute("aria-expanded", "false");
+  colorTrigger.focus();
 });
 
 document.getElementById("search-trigger").addEventListener("click", () => {
