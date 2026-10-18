@@ -1,4 +1,4 @@
-const CACHE_NAME = "deenverse-shell-v14";
+const CACHE_NAME = "deenverse-shell-v15";
 const APP_SHELL = ["./", "./index.html", "./styles.css?v=20261018-quran-start-v1", "./app.js?v=20261018-quran-start-v1", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", (event) => {
