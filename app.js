@@ -38,8 +38,9 @@ function setHomeFeaturedLecture(lecture) {
 
 function setLecturesFeaturedVideo(lecture) {
   const player = document.getElementById("featured-lecture-player");
-  player.src = `https://www.youtube-nocookie.com/embed/${lecture.id}?rel=0`;
+  player.dataset.videoId = lecture.id;
   player.title = `${lecture.title} — One Islam Productions`;
+  if (!player.hidden) player.src = `https://www.youtube-nocookie.com/embed/${lecture.id}?rel=0`;
   document.getElementById("featured-lecture-title").textContent = lecture.title;
 }
 
@@ -50,6 +51,20 @@ setLecturesFeaturedVideo(lecturesFeaturedVideo);
 document.getElementById("another-lecture").addEventListener("click", () => {
   lecturesFeaturedVideo = chooseFeaturedLecture(lecturesFeaturedVideo.id);
   setLecturesFeaturedVideo(lecturesFeaturedVideo);
+});
+document.getElementById("play-featured-lecture").addEventListener("click", (event) => {
+  const player = document.getElementById("featured-lecture-player");
+  player.src = `https://www.youtube-nocookie.com/embed/${player.dataset.videoId}?rel=0`;
+  player.hidden = false;
+  event.currentTarget.hidden = true;
+});
+document.querySelectorAll("button[data-embed-src]").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const frame = document.getElementById(button.dataset.embedTarget);
+    frame.src = frame.dataset.embedSrc;
+    frame.hidden = false;
+    event.currentTarget.hidden = true;
+  });
 });
 
 function loadSavedKeys() {
@@ -160,6 +175,16 @@ function navigate(page, { focusSearch = true } = {}) {
   document.querySelectorAll(".page").forEach((item) => item.classList.toggle("active-page", item === target));
   document.querySelectorAll(".nav-item").forEach((item) => item.classList.toggle("active", item.dataset.page === page));
   document.getElementById("page-label").textContent = page.toUpperCase();
+  if (page !== "lectures") {
+    const player = document.getElementById("featured-lecture-player");
+    player.src = "";
+    player.hidden = true;
+    document.getElementById("play-featured-lecture").hidden = false;
+    const playlist = document.getElementById("lecture-playlist");
+    playlist.src = "";
+    playlist.hidden = true;
+    document.getElementById("load-lecture-playlist").hidden = false;
+  }
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (page === "quran" && focusSearch) document.getElementById("surah-search").focus({ preventScroll: true });
   if (page === "saved") renderSaved();

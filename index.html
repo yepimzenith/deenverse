@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#f6f5f0">
     <meta name="application-name" content="Deenverse.com">
     <meta name="description" content="Deenverse.com — a quiet space for Quran, hadith from Sunnah.com, reflection, and learning.">
@@ -13,8 +13,9 @@
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261018-home-resume-v2">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261019-mobile-v2">
   </head>
   <body>
     <div class="app-shell">
@@ -174,13 +175,15 @@
           </article>
           <div class="creator-video-heading"><span class="eyebrow">A RANDOM PICK FROM THEIR OFFICIAL UPLOADS</span><h2 id="featured-lecture-title">A reminder from One Islam Productions</h2><p>Play this featured reminder here, or choose another official upload.</p></div>
           <div class="creator-video">
-            <iframe id="featured-lecture-player" src="https://www.youtube-nocookie.com/embed/UxErc6_HDJw?rel=0" title="One Islam Productions lecture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="featured-lecture-player" data-video-id="UxErc6_HDJw" title="One Islam Productions lecture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen hidden></iframe>
           </div>
+          <button class="primary-button load-video-button" id="play-featured-lecture" type="button">Load featured video <span>▷</span></button>
           <button class="secondary-button random-lecture-button" id="another-lecture" type="button">Choose another lecture <span>↻</span></button>
           <div class="creator-video-heading"><span class="eyebrow">MORE FROM THEIR OFFICIAL CHANNEL</span><h2>Browse all uploads</h2><p>Browse and play the complete official uploads playlist.</p></div>
           <div class="creator-video">
-            <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUTX8ZbNDi_HBoyjTWRw9fAg" title="One Islam Productions official videos playlist" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="lecture-playlist" data-embed-src="https://www.youtube-nocookie.com/embed/videoseries?list=UUTX8ZbNDi_HBoyjTWRw9fAg" title="One Islam Productions official videos playlist" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen hidden></iframe>
           </div>
+          <button class="primary-button load-video-button" id="load-lecture-playlist" type="button" data-embed-target="lecture-playlist" data-embed-src="https://www.youtube-nocookie.com/embed/videoseries?list=UUTX8ZbNDi_HBoyjTWRw9fAg">Load official playlist <span>▷</span></button>
           <div class="creator-searches"><a href="https://www.youtube.com/@OneIslamProductions/search?query=Quran" target="_blank" rel="noopener noreferrer"><span>۞</span><span><strong>Quran reminders</strong><small>Search the official channel</small></span><b>↗</b></a><a href="https://www.youtube.com/@OneIslamProductions/search?query=Prophet" target="_blank" rel="noopener noreferrer"><span>❞</span><span><strong>Prophetic stories</strong><small>Search the official channel</small></span><b>↗</b></a><a href="https://www.youtube.com/@OneIslamProductions/search?query=faith" target="_blank" rel="noopener noreferrer"><span>✳</span><span><strong>Faith & reflection</strong><small>Search the official channel</small></span><b>↗</b></a></div>
           <p class="source-note">Videos are streamed by YouTube and remain the property of their original creators. Availability, titles, and playback are controlled by the channel.</p>
         </section>
@@ -210,6 +213,6 @@
         <p class="prayer-source" id="prayer-source" hidden>Times from AlAdhan. Calculation methods can vary; check with your local mosque.</p>
       </div>
     </dialog>
-    <script src="app.js?v=20261018-home-resume-v2"></script>
+    <script src="app.js?v=20261019-mobile-v2"></script>
   </body>
 </html>
